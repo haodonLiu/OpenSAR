@@ -1,0 +1,74 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# === Virtual environments ===
+.venv/
+venv/
+ENV/
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.claude/
+.codebuddy/
+
+# === Data files (不上传) ===
+data/*
+!data/.gitkeep
+*.csv
+*.xlsx
+*.xls
+*.sdf
+*.sdf.gz
+*.mol2
+*.pdb
+
+# === Output (不上传) ===
+output/*
+!.gitkeep
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Environment ===
+.env
+.env.local
+*.log
+
+# === Test/Temp ===
+pytest_out.txt
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# === Memory (工作记忆，本地私有) ===
+.workbuddy/memory/
+
+# === Jupyter ===
+.ipynb_checkpoints/
