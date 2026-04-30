@@ -58,6 +58,7 @@ desktop.ini
 .env
 .env.local
 *.log
+push_result.txt
 
 # === Test/Temp ===
 pytest_out.txt

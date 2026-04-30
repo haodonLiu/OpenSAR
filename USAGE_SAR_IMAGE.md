@@ -8,8 +8,8 @@
 - 第二层细聚类（较高相似度阈值）
 
 ✅ **MCS限制**
-- 每个MCS最多2个取代基（R基团）
-- 超过限制时自动过滤，保留取代基最多的2个
+- 每个MCS最多支持指定数量的R基团（默认2，可通过 `--r-groups` 调整）
+- 超过限制时自动过滤，保留取代基最多的N个
 
 ✅ **SAR图片**
 - 顶部：MCS骨架结构（带R1, R2标签）
@@ -22,13 +22,13 @@
 
 ```bash
 # 生成所有簇的SAR图片
-python sar_image_generator.py input.csv output/sar/
+python -m src.scripts.sar_image_generator input.csv output/sar/
 
 # 生成特定簇的SAR图片
-python sar_image_generator.py input.csv output/sar/ --cluster 1
+python -m src.scripts.sar_image_generator input.csv output/sar/ --cluster 1
 
 # 自定义聚类参数
-python sar_image_generator.py input.csv output/sar/ --threshold 0.6 --max 8
+python -m src.scripts.sar_image_generator input.csv output/sar/ --threshold 0.6 --max 8
 ```
 
 ### 参数说明
@@ -40,6 +40,7 @@ python sar_image_generator.py input.csv output/sar/ --threshold 0.6 --max 8
 | `--cluster ID` | 只生成指定簇（1-based） | 所有簇 |
 | `--threshold N` | 聚类相似度阈值（0-1） | 0.7 |
 | `--max N` | 每簇最大分子数 | 10 |
+| `--r-groups N` | 最大R基团数（1-6） | 2 |
 
 ### 输出示例
 
@@ -126,8 +127,8 @@ Level 2: 细聚类 (threshold=0.7, max=8)
 ```
 找到MCS → 提取所有R基团
     ↓
-R基团数量 > 2？
-    ├─ 是 → 保留取代基最多的2个
+R基团数量 > max_r_groups？
+    ├─ 是 → 保留取代基最多的N个
     └─ 否 → 使用所有R基团
     ↓
 生成SAR图片
@@ -141,7 +142,7 @@ R基团数量 > 2？
    - MCS查找使用8个分子随机采样
 
 2. **R基团限制**
-   - 最多2个R基团/每个MCS
+   - 默认最多2个R基团/每个MCS（可通过 `--r-groups` 调整，范围1-6）
    - 确保SAR表格清晰易读
    - 适合科研报告展示
 
