@@ -25,16 +25,14 @@
 # 从子模块导入主要类和异常
 from .preprocessor import (
     ActivityPreprocessor,
-    CensoringType,
-    ActivityPreprocessingError,
+    CensoredType,
 )  # 活性预处理
 from .analyzer import SARAnalyzer, SARError, SARResult  # SAR分析器
 
 # 模块公开接口
 __all__ = [
     "ActivityPreprocessor",  # 活性数据预处理器
-    "CensoringType",  # 删失类型枚举
-    "ActivityPreprocessingError",  # 预处理异常
+    "CensoredType",  # 删失类型枚举
     "SARAnalyzer",  # SAR分析器
     "SARError",  # SAR分析异常
     "SARResult",  # SAR结果数据类
